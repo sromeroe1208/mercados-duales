@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<p align="justify">
+     Antes de comenzar, queremos que se familiarice con la tarea de codificación que deberá realizar en el Mercado de Trabajo escogido.
+     A continuación, podrá probar esta tarea durante 60 segundos. Recuerde que esta vez resolverá la tarea a modo de prueba, y no afectará sus ganancias.
+</p>
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+    <h3>
+        Instrucciones
+    </h3>
+
+<p align="justify">
+    Usted debe que pasar una serie de números a letras.
+    <br><br>
+    Le aparecerán 5 letras (Z, D, J, K, L) y una tabla que indica qué letra representa cada número.
+    <br><br>
+    Usted debe escribir la LETRA que corresponde a cada NÚMERO como respuesta en cada casilla. Cada vez que termine una secuencia, cambiará la LETRA que corresponde a cada NÚMERO.
+    <br><br>
+    Usted dispondrá de 60 segundos para completar correctamente todas las tareas que pueda. Cada vez que complete una tarea, haga click en el botón “Enviar”.
+    <br><br>
+    Si no tiene errores, la tarea quedará completa y al hacer click en “Enviar” le aparecerá una nueva tabla, para otra tarea similar. En esta nueva tabla cambian las claves. Es decir, la letra que corresponde a cada número.
+    <br><br>
+    Si hay errores, el computador le pedirá que los corrija para poder proceder.
+    <br><br>
+    En la siguiente imagen se muestra en verde la ubicación de las consonantes de la tarea. Como puede confirmar, en las traducciones sólo utilizará cinco consonantes. Las letras a utilizar serán las mismas en todo el estudio.
+    <br><br>
+    <p class="aligncenter" >
+<img src="{% static "images/Teclado.jpg" %} " width="600px" title="Teclado" />
+</p>
+<style>
+.aligncenter {
+    text-align: center;
+}
+</style>
+
+    Por favor oprima siguiente para comenzar. Una vez haga click empezará a correr el tiempo de prueba. </p>
+    </div>
+</div>
+<br><br>
+    {% next_button %}
+
+{% endblock %}

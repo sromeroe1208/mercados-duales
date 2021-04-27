@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+
+    <p>
+        <b>Antes de terminar, queremos hacerle algunas preguntas sobre usted</b>
+    </p>
+
+    {% formfields %}
+     <br><br>
+    {% next_button %}
+
+{% endblock %}

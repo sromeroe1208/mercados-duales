@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} Decisión de mercado ronda {{ronda}} de 5
+{% endblock title %}
+
+{% block content %}
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+{% formfields %}
+    </div>
+</div>
+     <br><br>
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %} Chequeo de comprensión
+{% endblock title %}
+
+{% block content %}
+
+<p>
+{% formfields %}
+</p>
+
+     <br><br>
+    {% next_button %}
+
+{% endblock %}

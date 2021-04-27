@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %} {% load otree static %} 
+
+{% block title %} Descripción de la tarea {% endblock %}
+
+
+{% block content %}
+
+<p>Usted debe pasar una serie de números a letras. </p>
+<p>   En la pantalla usted encontrará una tabla con 5 números y 5 casillas vacías. A la pareja entre una letra y un número le llamaremos <b>Código</b>. Usted debe escribir la LETRA que corresponde a cada NÚMERO en la casilla que se encuentra debajo de cada número. </p>
+<p>A cada transcripción de 5 números en sus respectivas letras le llamaremos <b>Secuencia</b>.</p>
+
+<p>Usted tiene <b>90 segundos</b> para completar correctamente todas las secuencias que pueda. Cada vez que complete una secuencia, haga click en el botón “Enviar”.
+
+<p>Si no tiene errores, la secuencia estará <b>completa</b>  y al hacer click en “Enviar” le aparecerá una nueva tabla. Tenga cuidado, pues la <b>Clave</b> entre números y letras cambiará en la nueva tabla.</p>
+<p>Si hay errores, el computador le pedirá que los corrija para poder completar la <b>secuencia</b>. </p>
+
+<p>La siguiente imagen es una representación de la pantalla que observará en cada ronda de la actividad mientras completa las <b>secuencias</b>. Asegúrese de entender la tarea.</p>
+
+<p class="aligncenter" >
+<img src="{% static "imagenes/pantalla_.jpg" %} " width="1000px" title="Pantalla" />
+</p>
+
+<p>Las letras a utilizar serán las mismas en todo el estudio. En la siguiente imagen se muestra en verde la ubicación de las consonantes a emplear en la tarea.</p>
+
+<p class="aligncenter" >
+<img src="{% static "imagenes/teclado2_.jpeg" %} " width="500px" title="Teclado" />
+</p>
+
+<br><br>
+{% next_button %}
+
+<style>
+.aligncenter {
+    text-align: center;
+}
+</style>
+{% endblock %}
