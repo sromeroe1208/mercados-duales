@@ -22,21 +22,22 @@ Experimento para tesis de maestría / grupo de control
 class Constants(BaseConstants):
     name_in_url = 'control'
     players_per_group = 6
-    num_rounds = 6
+    num_rounds = 2
     piecerateSC = c(1000)
     piecerateC = c(960)
     bonusC = c(160)
     bonusSC = c(120)
     letters_per_word = 5
     use_timeout = True
-    seconds_per_period = 90
+    seconds_per_period = 10
+    # use_word_target = 
 
 class Subsession(BaseSubsession):
     def creating_session(self):
         if self.round_number == 1:
             for p in self.get_players():
                 ronda_pagar = random.randint(2, Constants.num_rounds)
-                p.participant.vars['task_pay'] = ronda_pagar
+                p.task_pay = ronda_pagar
 
 class Group(BaseGroup):
 
@@ -83,11 +84,8 @@ class Group(BaseGroup):
         self.jugadores_SC = contador
 
 class Player(BasePlayer):
-
+    task_pay = models.IntegerField()
     palabras = models.IntegerField(initial=0)
-    pago = models.CurrencyField()
-    pago_ronda = models.CurrencyField()
-    pago_completo = models.CurrencyField()
     mistakes = models.IntegerField(initial=0)
     filtro = models.IntegerField()
     identificador = models.StringField(label='Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.')

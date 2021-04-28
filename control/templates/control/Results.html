@@ -12,7 +12,7 @@
         <tr><td>Usted realizó {{ player.palabras }} secuencias correctamente. </td>
           {% if  ronda >= 1%}
         <tr><td colspan="2"><hr/></td></tr>
-        <tr><td>Si esta ronda es escogida, sus ganancias serán de:</td><td>{{ player.payoff|floatformat:0 }}</td></tr>
+        <tr><td>Si esta ronda es escogida, sus ganancias serán de:</td><td>{{ player.payoff }}</td></tr>
         {% else %}
         {% endif %}
     </table>

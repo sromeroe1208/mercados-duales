@@ -75,7 +75,7 @@ class tarea(Page):
 
 class ResultsWaitPage(WaitPage):
     def is_displayed(self):
-        return self.round_number > 0
+        return self.round_number > 1
 
     def after_all_players_arrive(self):
         self.group.set_total_performance() # CAlcule el desempeño del grupo una vez ermino todo el grupo
@@ -86,7 +86,7 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     def is_displayed(self):
-        return self.round_number > 0
+        return self.round_number > 1
 
     def vars_for_template(self):
         return {
@@ -108,7 +108,7 @@ class pago_total(Page):
         return {
             'codigo': self.player.in_round(1).identificador,
             'ronda_pagar':   self.participant.vars['task_pay'] - 1,
-            'pago_completo': self.player.in_round(self.participant.vars['task_pay'] - 1).payoff
+            'pago_completo': self.player.in_round(self.participant.vars['task_pay']).payoff
         }
 
 

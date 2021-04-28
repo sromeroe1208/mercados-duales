@@ -183,7 +183,7 @@ margin-left: 47%;
        }
     })
 
-  letters_per_word = {{Constants.letters_per_word}};
+  letters_per_word = "{{ Constants.letters_per_word }}";
   alphabet = genCharArray(5);
   word_letters = alphabet;
   word = genNewWord();
@@ -191,7 +191,6 @@ margin-left: 47%;
   legend_letters = genNewList();
   b = numbers();
 
-  var use_word_target = {{Constants.use_word_target | json}};
 
 
 
