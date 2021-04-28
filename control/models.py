@@ -120,7 +120,7 @@ class Player(BasePlayer):
     p2 = models.IntegerField(label="Edad")
     p3 = models.IntegerField(
     choices=[
-        [1, 'Estudiante'],
+        [1,'Estudiante'],
         [2,'Desempleado'],
         [3,'Empleado a jornada completa'],
         [4,'Empleado a tiempo parcial'],

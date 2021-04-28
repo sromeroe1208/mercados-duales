@@ -6,11 +6,23 @@
 
 {% block content %}
 
-<div class="card bg-light m-3">
-    <div class="card-body">
-{% formfields %}
+    <div class="card bg-light m-3">
+        <div class="card-body">
+            <p>Por favor seleccione el mercado en el que desea participar esta ronda:</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="market" id="market-c" value="C">
+                <label class="form-check-label" for="market-c">
+                    <b>Mercado C (con contribución):</b> Mis tareas completadas dan un beneficio a los demás miembros del grupo, y yo me beneficio de las tareas completadas por los miembros del grupo que escojan este mercado.
+                </label>
+            </div><br/>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="market" id="market-sc" value="SC">
+                <label class="form-check-label" for="market-sc">
+                    <b>Mercado SC (sin contribución):</b> Me beneficio de las tareas completadas por los miembros del grupo que escojan el Mercado C, y mis tareas completadas me dan un beneficio más alto que en el mercado C, pero sólo a mí.
+                </label>
+            </div>
+        </div>
     </div>
-</div>
      <br><br>
     {% next_button %}
 

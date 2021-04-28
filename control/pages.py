@@ -95,7 +95,9 @@ class Results(Page):
             'jug_C': self.group.jugadores_C,
             'jug_SC': self.group.jugadores_SC,
             'prom_C': self.group.pago_promedio_C,
-            'prom_SC': self.group.pago_promedio_SC
+            'prom_SC': self.group.pago_promedio_SC,
+            "pay_player":  "$"+format(int(str(self.player.payoff).split(",")[0]),',d'),
+
 
         }
 

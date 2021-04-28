@@ -6,11 +6,55 @@
 
 {% block content %}
 
-<p>
-{% formfields %}
-</p>
+    <p>1. Por favor seleccione la respuesta que corresponde al Mercado C (con contribución):</p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="c_1" id="c1-1" value="1">
+        <label class="form-check-label" for="c1-1">
+            Mis tareas completadas dan un beneficio a los demás miembros del grupo, y yo me beneficio de las tareas completadas por los miembros del grupo que escojan este mercado.
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="c_1" id="c1-2"  onclick="clickaction(1)" value="0">
+        <label class="form-check-label" for="c1-2">
+            Mis tareas completadas no dan un beneficio a los demás miembros del grupo, y yo me beneficio de las tareas completadas por los miembros del grupo que escojan este mercado.
+        </label>
+      </div>
+
+      <p>2. Por favor seleccione la respuesta que corresponde al Mercado SC (sin contribución):</p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="c_2" id="c2-1" onclick="clickaction(2)" value="0">
+        <label class="form-check-label" for="c2-1">
+            No me beneficio de las tareas completadas por los miembros del grupo que escojan el Mercado C, y mis tareas completadas me dan un beneficio más alto que en el mercado C, pero sólo a mí.
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="c_2" id="c2-2" value="1">
+        <label class="form-check-label" for="c2-2">
+            Me beneficio de las tareas completadas por los miembros del grupo que escojan el Mercado C, y mis tareas completadas me dan un beneficio más alto que en el mercado C, pero sólo a mí.
+        </label>
+      </div>
+
+    <div class="position-absolute top-0 end-0 p-3" style="z-index: 5">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+            <strong class="me-auto">Ups!!!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div id="bodyToast" class="toast-body">
+               
+            </div>
+        </div>
+    </div>
+
 
      <br><br>
     {% next_button %}
+
+    <script>
+        function clickaction(res){
+            $('.toast').toast('show');
+            document.getElementById("bodyToast").innerHTML =  "Su respuesta a la pregunta "+res+" no es correcta"
+        }
+    </script>
 
 {% endblock %}
