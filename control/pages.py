@@ -19,11 +19,6 @@ class instrucciones(Page):
         return self.round_number == 1
 
 
-class ronda_practica(Page):
-    def is_displayed(self):
-        return self.round_number == 1
-
-
 class choice(Page):
     def is_displayed(self):
         return self.round_number > 1
@@ -156,7 +151,6 @@ class questions(Page):
 
 page_sequence = [Initial,
                  instrucciones,
-                 ronda_practica,
                  Markets,
                  check,
                  choice,

@@ -13,6 +13,8 @@
             <td>
                 Usted realizó {{ player.palabras }} {% if player.palabras == 1 %} secuencia {% else %} secuencias{% endif %} correctamente. 
             </td>
+         <tr><td colspan="2"><hr/></td></tr>
+
           {% if  ronda >= 1 %}
         <tr><td colspan="2"><hr/></td></tr>
         <tr><td>Si esta ronda es escogida, sus ganancias serán de:</td><td>{{ pay_player }}</td></tr>

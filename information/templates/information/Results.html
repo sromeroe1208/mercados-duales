@@ -9,9 +9,17 @@
 
     <table class="table-condensed" style="width:500px; margin-top:20px;">
         <tr><td>Usted escogió el Mercado {{ player.market }}</td></tr>
-        <tr><td>Usted realizó {{ player.performance }} tareas de codificación correctamente. </td>
+        <tr>
+            <td>
+                Usted realizó {{ player.palabras }} {% if player.palabras == 1 %} secuencia {% else %} secuencias{% endif %} correctamente.
+            </td>
+
         <tr><td colspan="2"><hr/></td></tr>
-        <tr><td>Sus ganancias en esta ronda son:</td><td>{{ player.payoff|floatformat:0 }}</td></tr>
+          {% if  ronda >= 1 %}
+        <tr><td colspan="2"><hr/></td></tr>
+        <tr><td>Si esta ronda es escogida, sus ganancias serán de:</td><td>{{ pay_player }}</td></tr>
+        {% else %}
+        {% endif %}
         {% if jug_C == 0 %}
             <tr><td>{{jug_C}}/{{ Constants.players_per_group }} miembros de su grupo escogieron el Mercado C.</td>
         {% elif jug_C == 1 %}

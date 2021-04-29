@@ -89,12 +89,11 @@ class Player(BasePlayer):
     mistakes = models.IntegerField(initial=0)
     filtro = models.IntegerField()
     identificador = models.StringField(label='Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.')
-    role1 = models.IntegerField()
 
     market = models.StringField(
         choices=[['C', 'Mercado C (con contribución): Mis tareas completadas dan un beneficio a los demás miembros del grupo, y yo me beneficio de las tareas completadas por los miembros del grupo que escojan este mercado.'], ['SC', 'Mercado SC (sin contribución): Me beneficio de las tareas completadas por los miembros del grupo que escojan el Mercado C, y mis tareas completadas me dan un beneficio más alto que en el mercado C, pero sólo a mí.']],
         label='Por favor seleccione el mercado en el que desea participar esta ronda:',
-        widget=widgets.RadioSelect,
+        widget=widgets.RadioSelectHorizontal(),
     )
 
     belief = models.IntegerField(
@@ -145,6 +144,7 @@ class Player(BasePlayer):
         [1,'Subsidiado'],
         [2,'Contributivo (incluye regímenes especiales)']
     ], label="A qué régimen de seguridad social en salud pertenece")
+
     p7_1 = models.PositiveIntegerField(choices=[1,2,3,4],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="Gobierno"
@@ -161,31 +161,31 @@ class Player(BasePlayer):
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="Administradora Colombiana de Pensiones -Colpensiones-"
                                        )
-    p8_1 = models.PositiveIntegerField(choices=[1,2,3,4],
+    p8_1 = models.PositiveIntegerField(choices=[1,2,3,4,5],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="Ayudar a otras personas me da mucha felicidad"
                                        )
-    p8_2 = models.PositiveIntegerField(choices=[1,2,3,4],
+    p8_2 = models.PositiveIntegerField(choices=[1,2,3,4,5],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="No tengo una gran sensación de felicidad cuando actúo desinteresadamente"
                                        )
-    p8_3 = models.PositiveIntegerField(choices=[1,2,3,4],
+    p8_3 = models.PositiveIntegerField(choices=[1,2,3,4,5],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="Cada vez que tuve la oportunidad de ayudar a otros, me sentí muy bien después"
                                        )
-    p8_4 = models.PositiveIntegerField(choices=[1,2,3,4],
+    p8_4 = models.PositiveIntegerField(choices=[1,2,3,4,5],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="Ayudar a otras personas a las que no les va bien no mejora mi estado de ánimo"
                                        )
-    p8_5 = models.PositiveIntegerField(choices=[1,2,3,4],
+    p8_5 = models.PositiveIntegerField(choices=[1,2,3,4,5],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="No siento que tenga que realizar actos altruistas hacia los demás"
                                        )
-    p8_6 = models.PositiveIntegerField(choices=[1,2,3,4],
+    p8_6 = models.PositiveIntegerField(choices=[1,2,3,4,5],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="No considero que mi deber sea actuar desinteresadamente"
                                        )
-    p8_7 = models.PositiveIntegerField(choices=[1,2,3,4],
+    p8_7 = models.PositiveIntegerField(choices=[1,2,3,4,5],
                                        widget=widgets.RadioSelectHorizontal(),
                                        verbose_name="Siento el deber de ayudar a los demás siempre que sea posible para mí"
                                        )

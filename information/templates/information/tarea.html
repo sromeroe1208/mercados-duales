@@ -114,8 +114,9 @@ td {
     grid-template-columns: 6em auto;
     grid-template-rows: 1;
     grid-column-gap: 1vw
+    width: 10%;
+margin-left: 47%;
 }
-
 
 
 </style>
@@ -124,14 +125,28 @@ td {
 
 
 {% block title %}
-
+    Tarea: Ronda {{ronda}} de 5
 {% endblock %}
 
 {% block content %}
-<input type="hidden" name="performance" id="performance" value="" />
+<input type="hidden" name="palabras" id="palabras" value="" />
 <input type="hidden" name="mistakes" id="mistakes" value="" />
 
 <div class="test" id="hide_task">
+    <p style="font-size: 1.5vw;text-align: center;">Claves</p>
+    <table>
+        <tr>
+         {% for l in legend_list %}
+        <th style="width:20%" id="lcid_{{l}}"></td>
+        {% endfor%}
+        </tr>
+        <tr>
+            {% for l in legend_list %}
+        <td style="width:20%" id="llid_{{l}}"></td>
+        {% endfor%}
+        </tr>
+    </table>
+    <br><br>
 
 <!-- <form id="test_frm"> -->
 <div class="task-container">
@@ -147,35 +162,28 @@ td {
 </div>
 </div>
 
+
+        <div class="otree-form-errors" id="error-form"></div>
+
+
 <br><br>
 <div class="button-container">
-
 <input type="button" onclick="myFunction()" value="Enviar">
-<div class="otree-form-errors" id="error-form"></div>
 </div>
 
-<br><br>
-
-<table>
-<tr>
- {% for l in legend_list %}
-<th style="width:20%" id="lcid_{{l}}"></td>
-{% endfor%}
-</tr>
-<tr>
-    {% for l in legend_list %}
-<td style="width:20%" id="llid_{{l}}"></td>
-{% endfor%}
-</tr>
-</table>
 
 <br><br>
 </div>
 
 
 <script>
+    $(document).keydown(function(objEvent) {
+       if (objEvent.keyCode == 9) {  //tab pressed
+           objEvent.preventDefault(); // stops its action
+       }
+    })
 
-  letters_per_word = {{Constants.letters_per_word}};
+  letters_per_word = "{{ Constants.letters_per_word }}";
   alphabet = genCharArray(5);
   word_letters = alphabet;
   word = genNewWord();
@@ -183,7 +191,6 @@ td {
   legend_letters = genNewList();
   b = numbers();
 
-  var use_word_target = {{Constants.use_word_target | json}};
 
 
 
@@ -203,8 +210,8 @@ function myFunction() {
     errors=checkSolution();
 
   if (errors == 0) {
-      var temp = Number(document.getElementById("performance").value) + 1
-      document.getElementById("performance").value = temp;
+      var temp = Number(document.getElementById("palabras").value) + 1
+      document.getElementById("palabras").value = temp;
       document.getElementById("error-form").style.display = "none";
 
       word = genNewWord();
@@ -232,7 +239,7 @@ function myFunction() {
       document.getElementById("error-form").style.display = "block";
   }
   else {
-        document.getElementById("performance").value = "0";
+        document.getElementById("palabras").value = "0";
   }
 }
 
