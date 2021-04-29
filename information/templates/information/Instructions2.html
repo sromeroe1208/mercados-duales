@@ -1,44 +1,32 @@
-{% extends "global/Page.html" %} {% load otree static %}
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load user_agents %}
 
-{% block title %} Descripción de la tarea {% endblock %}
-
-
-{% block content %}
-<p>Antes de comenzar, queremos que se familiarice con la tarea que deberá realizar en el Mercado de Trabajo escogido en cada ronda.</p>
-
-<p>Usted debe pasar una serie de números a letras. </p>
-<p>En la pantalla usted encontrará una tabla con 5 números y 5 casillas vacías. A la pareja entre una letra y un número le llamaremos <b>Código</b>. Usted debe escribir la LETRA que corresponde a cada NÚMERO en la casilla que se encuentra debajo de cada número. </p>
-<p>A cada transcripción de 5 números en sus respectivas letras le llamaremos <b>Secuencia</b>.</p>
-
-<p>Usted tiene <b>90 segundos</b> para completar correctamente todas las secuencias que pueda. Cada vez que complete una secuencia, haga click en el botón “Enviar”.
-
-<p>Si no tiene errores, la secuencia estará <b>completa</b>  y al hacer click en “Enviar” le aparecerá una nueva tabla. Tenga cuidado, pues la <b>Clave</b> entre números y letras cambiará en la nueva tabla.</p>
-<p>Si hay errores, el computador le pedirá que los corrija para poder completar la <b>secuencia</b>. </p>
-
-<p>La siguiente imagen es una representación de la pantalla que observará en cada ronda de la actividad mientras completa las <b>secuencias</b>. Asegúrese de entender la tarea.</p>
-
-<p class="aligncenter" >
-<img src="{% static 'images/pantalla_.jpg' %}" width="1000px" title="Pantalla" />
-</p>
-
-<p>Las letras a utilizar serán las mismas en todo el estudio. En la siguiente imagen se muestra en verde la ubicación de las consonantes a emplear en la tarea.</p>
-
-<p class="aligncenter" >
-<img src="{% static 'images/teclado2_.jpeg' %}" width="500px" title="Teclado" />
-</p>
-
-<p>A continuación, podrá probar esta tarea durante 90 segundos. Recuerde que esta vez resolverá la tarea a modo de prueba, y no afectará sus ganancias. Trate de completar el mayor número de secuencias posibles.</p>
-<p>Por favor oprima siguiente para comenzar. Una vez haga click comenzará a correr el tiempo de prueba.</p>
-
-<br>
-{% next_button %}
-
-<style>
-.aligncenter {
-    text-align: center;
-}
-</style>
+{% block title %}Ronda {{ronda}} de 5
 {% endblock %}
 
+{% block content %}
 
 
+
+<p align="justify">
+Recuerde que usted va a recibir:<br><br>
+        <div class="card bg-light m-3">
+        <div class="card-body">
+
+{% if jug_market == 'SC' %}
+1000 pesos por cada tarea completa,<br>
++120 pesos por cada tarea completa de los otros miembros del grupo en el Mercado C.
+{% else %}
+960 pesos por cada tarea completa,<br>
++160 pesos por cada tarea completa de los otros miembros del grupo en este Mercado C.<br>
+Además, por cada tarea completa suya, los otros participantes en este Mercado C reciben 160 pesos, y los participantes en el Mercado A reciben 120 pesos.
+{% endif %}
+</div>
+</div>
+</p>
+Por favor oprima siguiente para comenzar. Una vez haga <I>click</I> empezará a correr el tiempo.<br><br>
+
+{% next_button %}
+
+{% endblock %}

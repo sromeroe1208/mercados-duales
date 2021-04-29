@@ -3,6 +3,15 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
+class consent(Page):
+    form_model = 'player'
+    form_fields = ['consent',
+                   'consent_account']
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+
 class Initial(Page):
     form_model = 'player'
     form_fields = ['identificador']
@@ -89,10 +98,9 @@ class Results(Page):
             'ronda': self.round_number - 1,
             'jug_C': self.group.jugadores_C,
             'jug_SC': self.group.jugadores_SC,
-            'prom_C': self.group.pago_promedio_C,
-            'prom_SC': self.group.pago_promedio_SC,
+            "prom_C":  "$"+format(int(str(self.group.pago_promedio_C).split(",")[0]),',d'),
+            "prom_SC":  "$"+format(int(str(self.group.pago_promedio_SC).split(",")[0]),',d'),
             "pay_player":  "$"+format(int(str(self.player.payoff).split(",")[0]),',d'),
-
 
         }
 
@@ -104,10 +112,9 @@ class pago_total(Page):
     def vars_for_template(self):
         return {
             'codigo': self.player.in_round(1).identificador,
-            'ronda_pagar':   self.participant.vars['task_pay'] - 1,
-            'pago_completo': self.player.in_round(self.participant.vars['task_pay']).payoff
+            'ronda_pagar': self.player.task_pay - 1,
+            'pago_completo': format(int(str(self.player.in_round(self.player.task_pay).payoff).split(",")[0]),',d')
         }
-
 
 class Instructions2(Page):
     def is_displayed(self):
@@ -149,7 +156,8 @@ class questions(Page):
                    'p8_7']
 
 
-page_sequence = [Initial,
+page_sequence = [consent,
+                 Initial,
                  instrucciones,
                  Markets,
                  check,

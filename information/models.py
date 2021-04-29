@@ -22,7 +22,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'information'
     players_per_group = 6
-    num_rounds = 2
+    num_rounds = 3
     piecerateSC = c(1000)
     piecerateC = c(960)
     bonusC = c(160)
@@ -34,7 +34,6 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        if self.round_number == 1:
             for p in self.get_players():
                 ronda_pagar = random.randint(2, Constants.num_rounds)
                 p.task_pay = ronda_pagar
@@ -89,6 +88,8 @@ class Player(BasePlayer):
     mistakes = models.IntegerField(initial=0)
     filtro = models.IntegerField()
     identificador = models.StringField(label='Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.')
+    consent = models.BooleanField(blank=True)
+    consent_account = models.BooleanField(blank=True)
 
     market = models.StringField(
         choices=[['C', 'Mercado C (con contribución): Mis tareas completadas dan un beneficio a los demás miembros del grupo, y yo me beneficio de las tareas completadas por los miembros del grupo que escojan este mercado.'], ['SC', 'Mercado SC (sin contribución): Me beneficio de las tareas completadas por los miembros del grupo que escojan el Mercado C, y mis tareas completadas me dan un beneficio más alto que en el mercado C, pero sólo a mí.']],
@@ -99,7 +100,7 @@ class Player(BasePlayer):
     belief = models.IntegerField(
         choices=[[1, '1'], [2, '2'], [3, '3'], [4, '4'], [5, '5']],
         label="Recuerde que usted está en un grupo de 6 personas. De las otras 5 personas ¿Cuántas cree que seleccionaron el Mercado C (con contribución)?",
-        widget=widgets.RadioSelect,
+        widget=widgets.RadioSelectHorizontal(),
     )
 
     c_1 = models.IntegerField(
@@ -114,9 +115,9 @@ class Player(BasePlayer):
     )
 
     p1 = models.IntegerField(
-        choices=[[1, 'Hombre'], [2, 'Mujer'], [3, 'No binario']], label="¿Con qué género se identifica?")
+        choices=[[1, 'Hombre'], [2, 'Mujer'], [3, 'No binario']], label="1. ¿Con qué género se identifica?", widget=widgets.RadioSelectHorizontal(),)
 
-    p2 = models.IntegerField(label="Edad")
+    p2 = models.IntegerField(label="2. Edad (Escriba únicamente números")
     p3 = models.IntegerField(
     choices=[
         [1,'Estudiante'],
@@ -128,8 +129,8 @@ class Player(BasePlayer):
         [7,'Retirado/pensionado'],
         [8,'Otro'],
         [9,'No sabe']
-    ], label="¿Cuál es su situación laboral actual?")
-    p4 = models.StringField(label="Escriba el nombre de su profesión/ocupación")
+    ], label="3. ¿Cuál es su situación laboral actual?")
+    p4 = models.StringField(label="4. Escriba el nombre de su profesión/ocupación")
     p5 = models.IntegerField(
     choices=[
         [1,'Ninguno'],
@@ -138,12 +139,13 @@ class Player(BasePlayer):
         [4,'Técnico o Tecnólogo'],
         [5,'Pregrado'],
         [6,'Posgrado (Especialización, Maestría, Doctorado)']
-    ], label="¿Cuál es el nivel educativo más alto que ha completado?")
+    ], label="5. ¿Cuál es el nivel educativo más alto que ha completado?")
     p6 = models.IntegerField(
     choices=[
         [1,'Subsidiado'],
         [2,'Contributivo (incluye regímenes especiales)']
-    ], label="A qué régimen de seguridad social en salud pertenece")
+    ], label="6. A qué régimen de seguridad social en salud pertenece", widget=widgets.RadioSelectHorizontal(),
+    )
 
     p7_1 = models.PositiveIntegerField(choices=[1,2,3,4],
                                        widget=widgets.RadioSelectHorizontal(),

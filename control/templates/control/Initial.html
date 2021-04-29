@@ -1,12 +1,12 @@
 {% extends "global/Page.html" %} 
 {% load otree static %} 
 {% load user_agents %}
-{% block title %} Prueba {% endblock %} 
+{% block title %} {% endblock %}
 {% block content %} 
 
-<div class="card bg-light m-3">
-  <div class="card-body">
-    <h3>¡Bienvenido!</h3>
+
+
+    <h3>¡Bienvenido!</h3><br />
     <p align="justify">
       Al comenzar la actividad usted será asignado, al azar, a un grupo con {{
       Constants.players_per_group }} participantes. Durante toda la actividad
@@ -16,14 +16,14 @@
 
       La actividad tendrá 5 rondas. Cada ronda consta de 3 Etapas.<br /><br />
 
-      Etapa 1: Escoger en qué Mercado de Trabajo quiere participar. Los dos
+      <b>Etapa 1:</b> Escoger en qué Mercado de Trabajo quiere participar. Los dos
       Mercados de Trabajo tienen diferentes esquemas de pago.<br /><br />
 
-      Etapa 2: Realizar una tarea por {{ Constants.seconds_per_period }}
+      <b>Etapa 2:</b> Realizar una tarea por {{ Constants.seconds_per_period }}
       segundos. Las tareas son iguales en los Mercados de Trabajo, pero pagan de
       forma diferente.<br /><br />
 
-      Etapa 3: Recibir información de sus ganancias de la ronda. <br /><br />
+      <b>Etapa 3:</b> Recibir información de sus ganancias de la ronda. <br /><br />
 
       De las 5 rondas, una será seleccionada al azar para pagarle a usted y a
       los demás participantes en su grupo. <br /><br />
@@ -31,11 +31,9 @@
       <b>Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.</b><br/>
       <input type="text" name="identificador" maxlength="10" minlength="10"/>
       <div class="alert alert-warning alert-dismissible fade " role="alert">
-        <strong>Corregir errores</strong> su respuesta debería contener 10 caracteres.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     </p>
-  </div>
-</div>
+
 {% next_button %} 
 {% endblock %}
