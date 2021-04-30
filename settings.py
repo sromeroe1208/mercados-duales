@@ -45,6 +45,8 @@ SECRET_KEY = 'rv!@_k&5rjif=kog&iqzko+_m!9%h0com$ep$mud43bj**uc*f'
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree', 'django_user_agents', 'numpy']
 
+STATIC_URL = '/static/'
+
 MIDDLEWARE_CLASSES = (
     # other middlewares...
     'django_user_agents.middleware.UserAgentMiddleware',
