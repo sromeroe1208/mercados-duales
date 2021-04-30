@@ -7,11 +7,11 @@
 
 {% block content %}
 
-<div class="card bg-light m-3">
-    <div class="card-body">
-
 <p align="justify">
 Recuerde que usted va a recibir:<br><br>
+        <div class="card bg-light m-3">
+        <div class="card-body">
+
 {% if jug_market == 'SC' %}
 1000 pesos por cada tarea completa,<br>
 +120 pesos por cada tarea completa de los otros miembros del grupo en el Mercado C.
@@ -19,11 +19,12 @@ Recuerde que usted va a recibir:<br><br>
 960 pesos por cada tarea completa,<br>
 +160 pesos por cada tarea completa de los otros miembros del grupo en este Mercado C.<br>
 Además, por cada tarea completa suya, los otros participantes en este Mercado C reciben 160 pesos, y los participantes en el Mercado A reciben 120 pesos.
-{% endif %}</p>
-    </div>
+{% endif %}
 </div>
+</div>
+</p>
+Por favor oprima siguiente para comenzar. Una vez haga <I>click</I> empezará a correr el tiempo.<br><br>
 
-Por favor oprima siguiente para comenzar. Una vez haga click empezará a correr el tiempo. <br><br>
 
 {% next_button %}
 

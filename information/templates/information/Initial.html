@@ -1,49 +1,40 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 {% load user_agents %}
-
-{% block title %}
-{% endblock %}
-
+{% block title %} {% endblock %}
 {% block content %}
-{% if request|is_mobile or request|is_tablet %}
-    <p>
-        Disculpas, la participación en este estudio NO está permitida en dispositivos móviles o tabletas.
+
+
+
+    <h3>¡Bienvenido!</h3><br />
+    <p align="justify">
+      Al comenzar la actividad usted será asignado, al azar, a un grupo con {{
+      Constants.players_per_group }} participantes. Durante toda la actividad
+      usted interactuará únicamente con los otros 5 miembros de su grupo. Las
+      decisiones que usted tome, y la cantidad de tareas que realice, afectarán
+      sus ganancias y las de los otros participantes de su grupo. <br /><br />
+
+      La actividad tendrá 5 rondas. Cada ronda consta de 3 Etapas.<br /><br />
+
+      <b>Etapa 1:</b> Escoger en qué Mercado de Trabajo quiere participar. Los dos
+      Mercados de Trabajo tienen diferentes esquemas de pago.<br /><br />
+
+      <b>Etapa 2:</b> Realizar una tarea por {{ Constants.seconds_per_period }}
+      segundos. Las tareas son iguales en los Mercados de Trabajo, pero pagan de
+      forma diferente.<br /><br />
+
+     <b>Etapa 3:</b> Recibir información de sus ganancias de la ronda, , así como información de cuántos miembros de su grupo escogieron cada Mercado de Trabajo. <br /><br />
+
+      De las 5 rondas, una será seleccionada al azar para pagarle a usted y a
+      los demás participantes en su grupo. <br /><br />
+
+      <b>Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.</b><br/>
+      <input type="text" name="identificador" maxlength="10" minlength="10"/>
+      <div class="alert alert-warning alert-dismissible fade " role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     </p>
-
-{% else %}
-<div class="card bg-light m-3">
-    <div class="card-body">
-    <h3>
-        ¡Bienvenido!
-    </h3>
-<p align="justify">
-
-    Al comenzar la actividad usted será asignado, al azar, a un grupo con {{ Constants.players_per_group }} participantes.
-    Durante toda la actividad usted interactuará únicamente con los otros 5 miembros de su
-    grupo. Las decisiones que usted tome, y la cantidad de tareas que realice, afectarán sus
-    ganancias y las de los otros participantes de su grupo. <br><br>
-
-    La actividad tendrá 5 rondas. Cada ronda consta de 3 Etapas.<br>
-
-    Etapa 1: Escoger en qué Mercado de Trabajo quiere participar. Los dos Mercados de Trabajo tienen diferentes esquemas de pago.<br>
-
-    Etapa 2: Realizar una tarea por {{ Constants.seconds_per_period }} segundos. Las tareas son iguales en los Mercados de Trabajo, pero pagan de forma diferente.<br>
-
-    Etapa 3: Recibir información de sus ganancias de la ronda, así como información de cuántos miembros de su grupo escogieron cada Mercado de Trabajo.<br>
-
-    De las 5 rondas, una será seleccionada al azar para pagarle a usted y a los demás participantes en su grupo.
-
-</p>
-    </div>
-</div>
-<br><br>
 {% next_button %}
-
-{% endif %}
-
 {% endblock %}
-
-
 
 
