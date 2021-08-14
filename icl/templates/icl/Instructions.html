@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'icl/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    {% trans "Instrucciones" %}
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper instructions">
+        <p>
+            {% blocktrans trimmed with p_hi=p_hi hi=hi p_lo=p_lo lo=lo %}
+                A continuación, puede elegir entre un pago seguro y una lotería.
+                 La lotería le da una oportunidad del {{p_hi}} de recibir {{hi}}
+                 y una posibilidad del {{p_lo}} de recibir {{lo}}.
+            {% endblocktrans %}
+            {% blocktrans trimmed with n=Constants.num_choices %}
+                Le presentaremos {{n}} diferentes opciones.
+                 Si bien la lotería es la misma en todas las opciones,
+                 el pago seguro diferirá en cada elección.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed with n=Constants.num_choices %}
+Después de completar todas las {{n}} opciones, una de las opciones se elegirá al azar para determinar su
+                 pago. Si elige la lotería, un sorteo aleatorio determinará si el resultado alto o bajo constituira su recompensa; de lo contrario, el pago seguro constituirá su recompensa. Esta actividad solo le será pagada a una de cada 20 personas.  Además, tenga en cuenta que cada punto ganado en esta parte del estudio será pagado a 100 pesos. Por ejemplo, si usted gana 300 puntos, sus ganancias en COP serian 30 mil pesos.
+            {% endblocktrans %}
+        </p>
+    </div>
+
+    {% next_button %}
+{% endblock %}
