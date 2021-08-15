@@ -19,6 +19,9 @@ class Initial(Page):
         else:
             return False
 
+    def before_next_page(self):
+        self.participant.vars['identificador'] = self.player.identificador
+
 
 class instrucciones(Page):
     def is_displayed(self):
@@ -48,7 +51,7 @@ class check(Page):
 
 class belief(Page):
     def is_displayed(self):
-        return self.round_number == 2
+        return self.round_number > 1
 
     form_model = 'player'
     form_fields = ['belief']
@@ -84,9 +87,20 @@ class ResultsWaitPage(WaitPage):
         self.group.set_jugador_SC()
         self.group.set_payoffs()
 
-
 class Results(Page):
     def is_displayed(self):
+        if(self.round_number > 1):
+            if(self.group.jugadores_C):
+                marketC_without_self = self.group.jugadores_C if self.player.market != 'C' else self.group.jugadores_C - 1
+                self.player.win_belief = True if marketC_without_self == self.player.belief else False
+            self.participant.vars['payoff'] = self.player.in_round(self.player.task_pay).payoff
+            self.participant.vars['win'] = self.player.in_round(self.player.task_pay).win_belief
+        if (self.round_number == Constants.num_rounds):
+            pays = []
+            for rj in (self.player.in_all_rounds()):
+                pays.append(format(int(str(rj.payoff).split(",")[0]),',d'))
+            self.participant.vars['pays'] = pays
+        
         return self.round_number > 1
 
     def vars_for_template(self):
@@ -164,6 +178,4 @@ page_sequence = [consent,
                  Instructions2,
 	             tarea,
                  ResultsWaitPage,
-                 Results,
-                 questions,
-                 pago_total]
+                 Results]

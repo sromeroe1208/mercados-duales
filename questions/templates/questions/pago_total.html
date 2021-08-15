@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Ganancias
+{% endblock %}
+
+{% block content %}
+<p><b>Por favor lea cuidadosamente la información en esta página y siga correctamente las instrucciones al final de la
+        misma.</b></p>
+
+
+<table class="table table-striped table-sm" style="width: 50%;">
+    <thead>
+        <tr>
+            <th scope="col">Ronda</th>
+            <th scope="col">Pago</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in pays %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ p }} COP</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p> La ronda elegida al azar para calcular sus ganancias es: Ronda {{ronda_pagar}}. </p>
+<p> Usted ganó {{pago_completo}} COP en esta ronda. </p>
+<p>Tenga en cuenta que, sus ganancias se transferirán de forma electrónica en un lapso de 24 horas hábiles a partir del
+    momento en que diligencie correctamente el formulario de pago.</p>
+
+{% if win_belief %}
+<p>ganastes 3000 cop</p>
+{% else %}
+<p>no ganastes 3000 cop</p>
+{% endif %}
+
+<p><b>Instrucciones formulario de pago</b></p>
+<p> <b>1.</b>. Copie (ctrl + c) el siguiente código:</p>
+
+<p>
+<h3 align="center">{{ codigo }}</h3>
+</p>
+
+<p><b>2.</b> Haga click sobre el vínculo mostrado debajo para acceder al formulario. Una vez allí, pegue el código en la
+    pregunta que lo solicita y termine de diligenciar el formulario. </p>
+
+<p><a
+        href="https://encuestas.urosario.edu.co/index.php/846598?lang=es">https://encuestas.urosario.edu.co/index.php/846598?lang=es</a>
+</p>
+
+{% endblock %}

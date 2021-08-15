@@ -1,0 +1,332 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+<style>
+    .form-check-label {
+        padding-right: 10px;
+    }
+</style>
+
+    <p>
+        <b>Antes de terminar, queremos hacerle algunas preguntas sobre usted</b>
+    </p>
+
+    <br/><span>¿Con qué género se identifica?</span>
+    <select class="form-select" aria-label="selectGender" name="p1">
+        <option selected>Seleccione</option>
+        <option value="1">Hombre</option>
+        <option value="2">Mujer</option>
+        <option value="3">No binario</option>
+    </select>
+    <br/><span>Edad</span>
+    <input class="form-control" type="text" type="number" aria-label="selectYearsOld" name="p2">
+    <br/><span>¿Cuál es su situación laboral actual?</span>
+    <select class="form-select" aria-label="selectGender" name="p3">
+        <option selected>Seleccione</option>
+        <option value="1">Estudiante</option>
+        <option value="2">Desempleado</option>
+        <option value="3">Empleado a jornada completa</option>
+        <option value="4">Empleado a tiempo parcial</option>
+        <option value="5">Trabajador independiente</option>
+        <option value="6">Trabajador no remunerado (por ejemplo: ama de casa, empresa familiar)</option>
+        <option value="7">Retirado/pensionado</option>
+        <option value="8">Otro</option>
+        <option value="9">No sabe</option>
+    </select>
+    <br/><span>Escriba el nombre de su profesión/ocupación</span>
+    <input class="form-control" type="text" type="number" aria-label="selectYearsOld" name="p4">
+    <br/><span>¿Cuál es el nivel educativo más alto que ha completado?</span>
+    <select class="form-select" aria-label="selectGender" name="p5">
+        <option selected>Seleccione</option>
+        <option value="1">Ninguno</option>
+        <option value="2">Primaria incompleta</option>
+        <option value="3">Bachillerato</option>
+        <option value="4">Técnico o Tecnólogo</option>
+        <option value="5">Pregrado</option>
+        <option value="6">Posgrado (Especialización, Maestría, Doctorado)</option>
+    </select>
+    <br/><span>A qué régimen de seguridad social en salud pertenece</span>
+    <select class="form-select" aria-label="selectGender" name="p6">
+        <option selected>Seleccione</option>
+        <option value="1">Subsidiado</option>
+        <option value="2">Contributivo (incluye regímenes especiales)</option>
+    </select>
+    <br/>
+    <br/><span>7. Por favor indique para cada una de las instituciones o entidades de la lista ¿Cuánta confianza tiene usted en ellas: (1) mucha confianza, (2) algo de confianza, (3) poca confianza o (4) nada de confianza? </span>
+    <br/>
+    <table class="table">
+          <tr>
+            <td >Gobierno</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_1" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_1" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_1" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_1" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >Ministerio de Salud y Protección Social</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_2" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_2" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_2" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_2" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >Administradora de los Recursos del Sistema General de Seguridad Social en Salud -ADRES-</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_3" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_3" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_3" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_3" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >Administradora Colombiana de Pensiones -Colpensiones-</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_4" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_4" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_4" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p7_4" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+            </td>
+          </tr>
+
+        </table>
+    <br/><span>8. Por favor indique qué tan de acuerdo o desacuerdo está con cada una de las siguientes afirmaciones. Seleccione un solo número de acuerdo con la siguiente escala: (1) muy de acuerdo, (2) De acuerdo, (3) ni de acuerdo ni en desacuerdo, (4) en desacuerdo, (5) muy en desacuerdo. </span>
+    <br/>
+
+    <table class="table">
+          <tr>
+            <td >Ayudar a otras personas me da mucha felicidad</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op5" value="5">
+                    <label class="form-check-label" for="op4">5</label>
+                </div>
+
+            </td>
+          </tr>
+          <tr>
+            <td >No tengo una gran sensación de felicidad cuando actúo desinteresadamente</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_2" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_2" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_2" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_2" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op5" value="5">
+                    <label class="form-check-label" for="op4">5</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >Cada vez que tuve la oportunidad de ayudar a otros, me sentí muy bien después</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_3" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_3" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_3" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_3" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op5" value="5">
+                    <label class="form-check-label" for="op4">5</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >Ayudar a otras personas a las que no les va bien no mejora mi estado de ánimo</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_4" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_4" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_4" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_4" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op5" value="5">
+                    <label class="form-check-label" for="op4">5</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >No siento que tenga que realizar actos altruistas hacia los demás</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_5" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_5" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_5" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_5" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op5" value="5">
+                    <label class="form-check-label" for="op4">5</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >No considero que mi deber sea actuar desinteresadamente</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_6" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_6" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_6" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_6" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op5" value="5">
+                    <label class="form-check-label" for="op4">5</label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td >Siento el deber de ayudar a los demás siempre que sea posible para mí</td>
+            <td class="d-flex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_7" id="op1" value="1">
+                    <label class="form-check-label" for="op1">1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_7" id="op2" value="2">
+                    <label class="form-check-label" for="op2">2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_7" id="op3" value="3">
+                    <label class="form-check-label" for="op3">3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_7" id="op4" value="4">
+                    <label class="form-check-label" for="op4">4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="p8_1" id="op5" value="4">
+                    <label class="form-check-label" for="op4">5</label>
+                </div>
+            </td>
+          </tr>
+        </table>
+
+    {% next_button %}
+
+{% endblock %}

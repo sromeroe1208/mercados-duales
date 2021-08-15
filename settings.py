@@ -13,6 +13,12 @@ SESSION_CONFIGS = [
          num_demo_participants=6,
          app_sequence=['information']
      ),
+     dict(
+         name='icl',
+         display_name="Mercados duales: icl",
+         num_demo_participants=6,
+         app_sequence=['information','icl','questions'] 
+     ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

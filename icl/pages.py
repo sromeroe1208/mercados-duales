@@ -49,6 +49,8 @@ class Decision(Page):
         # specify info for progress bar
         total = Constants.num_choices
         page = self.subsession.round_number
+        print("page", page)
+        print("sure_pay_off", self.participant.vars['icl_sure_payoffs'][page - 1])
         progress = page / total * 100
 
         return {
