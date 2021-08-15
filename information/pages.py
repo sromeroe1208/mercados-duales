@@ -93,14 +93,14 @@ class Results(Page):
             if(self.group.jugadores_C):
                 marketC_without_self = self.group.jugadores_C if self.player.market != 'C' else self.group.jugadores_C - 1
                 self.player.win_belief = True if marketC_without_self == self.player.belief else False
-            self.participant.vars['payoff'] = self.player.in_round(self.player.task_pay).payoff
-            self.participant.vars['win'] = self.player.in_round(self.player.task_pay).win_belief
         if (self.round_number == Constants.num_rounds):
             pays = []
             for rj in (self.player.in_all_rounds()):
                 pays.append(format(int(str(rj.payoff).split(",")[0]),',d'))
             self.participant.vars['pays'] = pays
-        
+            self.participant.vars['payoff'] = self.player.in_round(self.player.task_pay).payoff
+            self.participant.vars['win'] = self.player.in_round(self.player.task_pay).win_belief
+
         return self.round_number > 1
 
     def vars_for_template(self):

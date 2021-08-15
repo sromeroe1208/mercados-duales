@@ -92,7 +92,7 @@ class Player(BasePlayer):
     identificador = models.StringField(label='Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.')
     consent = models.BooleanField(blank=True)
     consent_account = models.BooleanField(blank=True)
-    win_belief = models.BooleanField(blank=True)
+    win_belief = models.BooleanField(blank=True, initial=0)
 
     market = models.StringField(
         choices=[['C', 'Mercado C (con contribución): Mis tareas completadas dan un beneficio a los demás miembros del grupo, y yo me beneficio de las tareas completadas por los miembros del grupo que escojan este mercado.'], ['SC', 'Mercado SC (sin contribución): Me beneficio de las tareas completadas por los miembros del grupo que escojan el Mercado C, y mis tareas completadas me dan un beneficio más alto que en el mercado C, pero sólo a mí.']],
