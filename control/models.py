@@ -12,31 +12,32 @@ import json
 import random
 import string
 
-author = 'Steffanny Romero'
+author = 'Your name here'
 
 doc = """
-Experimento para tesis de maestría / grupo de control
+Your app description
 """
 
 
 class Constants(BaseConstants):
     name_in_url = 'control'
     players_per_group = 6
-    num_rounds = 3
-    piecerateSC = c(1000)
-    piecerateC = c(960)
-    bonusC = c(160)
-    bonusSC = c(120)
+    num_rounds = 6
+    piecerateSC = c(2970)
+    piecerateC = c(2880)
+    bonusC = c(480)
+    bonusSC = c(360)
     letters_per_word = 5
     use_timeout = True
-    seconds_per_period = 10
-    # use_word_target = 
+    seconds_per_period = 90
+    # use_word_target =
 
 class Subsession(BaseSubsession):
     def creating_session(self):
             for p in self.get_players():
                 ronda_pagar = random.randint(2, Constants.num_rounds)
                 p.task_pay = ronda_pagar
+                p.participant.vars['task_pay'] = ronda_pagar
 
 class Group(BaseGroup):
 
@@ -59,6 +60,7 @@ class Group(BaseGroup):
             else:
                 jugador.payoff = (Constants.piecerateSC*jugador.palabras)+ Constants.bonusSC*self.total_performance
                 self.pago_promedio_SC += jugador.payoff
+            
         if self.jugadores_C != 0:
             self.pago_promedio_C /= self.jugadores_C
         else:
@@ -90,6 +92,7 @@ class Player(BasePlayer):
     identificador = models.StringField(label='Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.')
     consent = models.BooleanField(blank=True)
     consent_account = models.BooleanField(blank=True)
+    win_belief = models.BooleanField(blank=True, initial=0)
 
     market = models.StringField(
         choices=[['C', 'Mercado C (con contribución): Mis tareas completadas dan un beneficio a los demás miembros del grupo, y yo me beneficio de las tareas completadas por los miembros del grupo que escojan este mercado.'], ['SC', 'Mercado SC (sin contribución): Me beneficio de las tareas completadas por los miembros del grupo que escojan el Mercado C, y mis tareas completadas me dan un beneficio más alto que en el mercado C, pero sólo a mí.']],
@@ -98,8 +101,9 @@ class Player(BasePlayer):
     )
 
     belief = models.IntegerField(
+        initial=0,
         choices=[[1, '1'], [2, '2'], [3, '3'], [4, '4'], [5, '5']],
-        label="Recuerde que usted está en un grupo de 6 personas. De las otras 5 personas ¿Cuántas cree que seleccionaron el Mercado C (con contribución)?",
+        label="De las otras 5 personas en su grupo ¿Cuántas cree que seleccionaron el Mercado C (con contribución)?",
         widget=widgets.RadioSelectHorizontal(),
     )
 

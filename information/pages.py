@@ -159,14 +159,10 @@ class questions(Page):
                    'p7_2',
                    'p7_3',
                    'p7_4',
-                   'p8_1',
-                   'p8_2',
                    'p8_3',
                    'p8_4',
-                   'p8_5',
                    'p8_6',
                    'p8_7']
-
 
 page_sequence = [consent,
                  Initial,

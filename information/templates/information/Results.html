@@ -32,9 +32,9 @@
         {% if jug_SC == 0 %}
             <tr><td>{{jug_SC}}/{{ Constants.players_per_group }} miembros de su grupo escogieron el Mercado SC.</td>
         {% elif jug_SC == 1 %}
-            <tr><td>{{jug_SC}}/{{ Constants.players_per_group }} miembros de su grupo escogieron el Mercado SC, y el pago del participante fue {{prom_C}}. </td>
+            <tr><td>{{jug_SC}}/{{ Constants.players_per_group }} miembros de su grupo escogieron el Mercado SC, y el pago del participante fue {{prom_SC}}. </td>
         {% else %}
-            <tr><td>{{jug_SC}}/{{ Constants.players_per_group }} miembros de su grupo escogieron el Mercado SC, y el pago promedio de ellos fue de {{prom_C}}. </td>
+            <tr><td>{{jug_SC}}/{{ Constants.players_per_group }} miembros de su grupo escogieron el Mercado SC, y el pago promedio de ellos fue de {{prom_SC}}. </td>
         {% endif %}
     </table>
     <p></p>

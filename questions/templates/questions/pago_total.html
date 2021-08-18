@@ -28,15 +28,15 @@ Ganancias
 </table>
 
 <p> La ronda elegida al azar para calcular sus ganancias es: Ronda {{ronda_pagar}}. </p>
-<p> Usted ganó {{pago_completo}} COP en esta ronda. </p>
+<p> Usted ganó {{pago_completo}} COP en esta ronda. </p> {% if win_belief %}
+<p> Adicionalmente, ganaste 3000 COP por acertar en la pregunta sobre los participantes en el Mercado C</p>
+{% else %}
+<p></p>
+{% endif %}
 <p>Tenga en cuenta que, sus ganancias se transferirán de forma electrónica en un lapso de 24 horas hábiles a partir del
     momento en que diligencie correctamente el formulario de pago.</p>
 
-{% if win_belief %}
-<p>ganastes 3000 cop</p>
-{% else %}
-<p>no ganastes 3000 cop</p>
-{% endif %}
+
 
 <p><b>Instrucciones formulario de pago</b></p>
 <p> <b>1.</b>. Copie (ctrl + c) el siguiente código:</p>

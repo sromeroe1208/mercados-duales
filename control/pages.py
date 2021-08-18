@@ -2,15 +2,12 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-
 class consent(Page):
     form_model = 'player'
-    form_fields = ['consent',
-                   'consent_account']
+    form_fields = ['consent','consent_account']
 
     def is_displayed(self):
         return self.round_number == 1
-
 
 class Initial(Page):
     form_model = 'player'
@@ -21,6 +18,9 @@ class Initial(Page):
             return True
         else:
             return False
+
+    def before_next_page(self):
+        self.participant.vars['identificador'] = self.player.identificador
 
 
 class instrucciones(Page):
@@ -51,7 +51,7 @@ class check(Page):
 
 class belief(Page):
     def is_displayed(self):
-        return self.round_number == 2
+        return self.round_number > 1
 
     form_model = 'player'
     form_fields = ['belief']
@@ -87,9 +87,20 @@ class ResultsWaitPage(WaitPage):
         self.group.set_jugador_SC()
         self.group.set_payoffs()
 
-
 class Results(Page):
     def is_displayed(self):
+        if(self.round_number > 1):
+            if(self.group.jugadores_C):
+                marketC_without_self = self.group.jugadores_C if self.player.market != 'C' else self.group.jugadores_C - 1
+                self.player.win_belief = True if marketC_without_self == self.player.belief else False
+        if (self.round_number == Constants.num_rounds):
+            pays = []
+            for rj in (self.player.in_all_rounds()):
+                pays.append(format(int(str(rj.payoff).split(",")[0]),',d'))
+            self.participant.vars['pays'] = pays
+            self.participant.vars['payoff'] = self.player.in_round(self.player.task_pay).payoff
+            self.participant.vars['win'] = self.player.in_round(self.player.task_pay).win_belief
+
         return self.round_number > 1
 
     def vars_for_template(self):
@@ -115,6 +126,7 @@ class pago_total(Page):
             'ronda_pagar': self.player.task_pay - 1,
             'pago_completo': format(int(str(self.player.in_round(self.player.task_pay).payoff).split(",")[0]),',d')
         }
+
 
 class Instructions2(Page):
     def is_displayed(self):
@@ -147,11 +159,8 @@ class questions(Page):
                    'p7_2',
                    'p7_3',
                    'p7_4',
-                   'p8_1',
-                   'p8_2',
                    'p8_3',
                    'p8_4',
-                   'p8_5',
                    'p8_6',
                    'p8_7']
 
@@ -166,6 +175,4 @@ page_sequence = [consent,
                  Instructions2,
 	             tarea,
                  ResultsWaitPage,
-                 Results,
-                 questions,
-                 pago_total]
+                 Results]

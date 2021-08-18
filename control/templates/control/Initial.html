@@ -6,34 +6,31 @@
 
 
 
-    <h3>¡Bienvenido!</h3><br />
-    <p align="justify">
-      Al comenzar la actividad usted será asignado, al azar, a un grupo con {{
-      Constants.players_per_group }} participantes. Durante toda la actividad
-      usted interactuará únicamente con los otros 5 miembros de su grupo. Las
-      decisiones que usted tome, y la cantidad de tareas que realice, afectarán
-      sus ganancias y las de los otros participantes de su grupo. <br /><br />
+<h3>¡Bienvenido!</h3><br />
+<p align="justify">
+  Usted será asignado, al azar, a un grupo con {{
+  Constants.players_per_group }} participantes. Durante toda la actividad
+  usted interactuará únicamente con los otros 5 miembros de su grupo. Las
+  decisiones que usted tome, y la cantidad de tareas que realice, afectarán
+  sus ganancias y las de los otros participantes de su grupo. <br /><br />
 
-      La actividad tendrá 5 rondas. Cada ronda consta de 3 Etapas.<br /><br />
+  La actividad tendrá <span style="color: #ff0000;">5 rondas</span>. Cada ronda consta de 3 Etapas.<br /><br />
 
-      <b>Etapa 1:</b> Escoger en qué Mercado de Trabajo quiere participar. Los dos
-      Mercados de Trabajo tienen diferentes esquemas de pago.<br /><br />
+  <b>1. Escoger Mercado de Trabajo.</b> Los dos Mercados de Trabajo tienen diferentes esquemas de pago, a pesar de que la tarea que hará es la misma<br /><br />
 
-      <b>Etapa 2:</b> Realizar una tarea por {{ Constants.seconds_per_period }}
-      segundos. Las tareas son iguales en los Mercados de Trabajo, pero pagan de
-      forma diferente.<br /><br />
+  <b>2. Realizar la tarea.</b> En cada ronda usted realizará uan tarea de traducción por <span style="color: #ff0000;">90 segundos</span>. <br /><br />
 
-      <b>Etapa 3:</b> Recibir información de sus ganancias de la ronda. <br /><br />
+  <b>3. Resultados de la ronda.</b> Usted recibirá información de sus ganancias. <br /><br />
+  <i>Pagos de la actividad</i><br />
+  De las <span style="color: #ff0000;">5 rondas</span>, una será seleccionada al azar para pagarle a usted y a
+  los demás participantes en su grupo. <br /><br />
 
-      De las 5 rondas, una será seleccionada al azar para pagarle a usted y a
-      los demás participantes en su grupo. <br /><br />
-
-      <b>Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.</b><br/>
-      <input type="text" name="identificador" maxlength="10" minlength="10"/>
-      <div class="alert alert-warning alert-dismissible fade " role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    </p>
+  <b>Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Esta etiqueta es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.</b><br/>
+  <input type="text" name="identificador" maxlength="10" minlength="10"/>
+  <div class="alert alert-warning alert-dismissible fade " role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</p>
 
 {% next_button %} 
 {% endblock %}

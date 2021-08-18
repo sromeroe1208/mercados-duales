@@ -22,14 +22,14 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'information'
     players_per_group = 6
-    num_rounds = 3
-    piecerateSC = c(1000)
-    piecerateC = c(960)
-    bonusC = c(160)
-    bonusSC = c(120)
+    num_rounds = 6
+    piecerateSC = c(2970)
+    piecerateC = c(2880)
+    bonusC = c(480)
+    bonusSC = c(360)
     letters_per_word = 5
     use_timeout = True
-    seconds_per_period = 10
+    seconds_per_period = 90
     # use_word_target =
 
 class Subsession(BaseSubsession):
@@ -103,7 +103,7 @@ class Player(BasePlayer):
     belief = models.IntegerField(
         initial=0,
         choices=[[1, '1'], [2, '2'], [3, '3'], [4, '4'], [5, '5']],
-        label="Recuerde que usted está en un grupo de 6 personas. De las otras 5 personas ¿Cuántas cree que seleccionaron el Mercado C (con contribución)?",
+        label="De las otras 5 personas en su grupo ¿Cuántas cree que seleccionaron el Mercado C (con contribución)?",
         widget=widgets.RadioSelectHorizontal(),
     )
 

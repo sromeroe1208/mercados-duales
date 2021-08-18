@@ -14,11 +14,17 @@ SESSION_CONFIGS = [
          app_sequence=['information']
      ),
      dict(
-         name='icl',
-         display_name="Mercados duales: icl",
+         name='info_icl',
+         display_name="Mercados duales info con icl",
          num_demo_participants=6,
          app_sequence=['information','icl','questions'] 
      ),
+      dict(
+         name='control_icl',
+         display_name="Mercados duales control con icl",
+         num_demo_participants=6,
+         app_sequence=['control','icl','questions'] 
+     ),    
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
